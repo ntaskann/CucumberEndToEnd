@@ -6,3 +6,14 @@ Feature: Room Creation
     #kullanıcı  room data için post request göderir
     Then user gets the room data and assert
     #room datayı alır ve doğrular
+
+  @Assert
+  Scenario: TC01_Post_Room
+    Then user gets the room data and assert
+
+
+
+
+
+
+

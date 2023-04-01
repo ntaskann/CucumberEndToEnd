@@ -2,26 +2,30 @@ package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertTrue;
 
 public class Driver {
 
-    private Driver(){
+    private Driver() {
 
     }
 
-   private static WebDriver driver;
+    private static WebDriver driver;
     // driver'i baska class'lardan sadece Driver class ismi ile cagirabilmek icin STATIC yaptik
     // henuz bu driver ile ilgili ayarlar yapmadigim icin baska class'lar bunu yanlislikla kullanmasin diye
     // erisimi private yaptik (sadece bu class'in kullanimina acik yaptik)
 
-    public static WebDriver getDriver(){
-        if (driver==null){
+    public static WebDriver getDriver() {
+        if (driver == null) {
             // if'i bu method her calistiginda yeni bir driver olusturmamasi icin kullaniyorruz
             // if driver'i kontrol edecek eger bir deger atamasi yapildiysa yeni bir driver olusturmayacak
             switch (ConfigReader.getProperty("browser")) {
@@ -55,12 +59,23 @@ public class Driver {
         return driver;
     }
 
-    public static void closeDriver(){
-        if (driver!=null){
+    public static void closeDriver() {
+        if (driver != null) {
             driver.quit();
         }
         // burada yeniden null degeri atamamizin sebebi. bir sonraki getDriver method'u cagirisimizda
         // yeni deger atayabilmek istememizdir.
-        driver=null;
+        driver = null;
     }
+
+//    public static void roomAssertion(List<WebElement> element, int number) {
+//        List<WebElement> list = element;
+//        for (WebElement w : list) {
+//            if (w.getText().contains("" + number)) {
+//                assertTrue(w.getText().contains("" + number));
+//                break;
+//            }
+//        }
+//    }
+
 }

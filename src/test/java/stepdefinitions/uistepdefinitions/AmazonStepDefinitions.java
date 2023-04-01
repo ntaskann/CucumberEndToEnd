@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uistepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -10,7 +10,7 @@ import pages.AmazonPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class amazonStepDefinitions {
+public class AmazonStepDefinitions {
     AmazonPage amazonPage=new AmazonPage();
 
     @When("kullanici amazon sayfasina gider")
